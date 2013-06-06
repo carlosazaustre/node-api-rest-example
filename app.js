@@ -14,6 +14,7 @@ app.get('/', function(req, res) {
   res.send("Hello world!");
 });
 
+
 mongoose.connect('mongodb://localhost/tvshows', function(err, res) {
 	if(err) {
 		console.log('ERROR: connecting to Database. ' + err);
