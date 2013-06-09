@@ -7,6 +7,7 @@ module.exports = function(app) {
   findAllTVShows = function(req, res) {
   	TVShow.find(function(err, tvshows) {
   		if(!err) {
+        console.log('GET /tvshows')
   			res.send(tvshows);
   		} else {
   			console.log('ERROR: ' + err);
@@ -16,8 +17,9 @@ module.exports = function(app) {
 
   //GET - Return a TVShow with specified ID
   findById = function(req, res) {
-  	TVShow.findById(req.param.id, function(err, tvshow) {
+  	TVShow.findById(req.params.id, function(err, tvshow) {
   		if(!err) {
+        console.log('GET /tvshow/' + req.params.id);
   			res.send(tvshow);
   		} else {
   			console.log('ERROR: ' + err);
@@ -90,7 +92,7 @@ module.exports = function(app) {
   app.get('/tvshows', findAllTVShows);
   app.get('/tvshow/:id', findById);
   app.post('/tvshow', addTVShow);
-  app.put('/tvshow(:id', updateTVShow);
+  app.put('/tvshow/:id', updateTVShow);
   app.delete('/tvshow/:id', deleteTVShow);
 
 }

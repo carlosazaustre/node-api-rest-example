@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var tvshowSchema = new Schema({
 	title: 		{ type: String },
 	year: 		{ type: Number },
-	country: 	[ type: String },
+	country: 	{ type: String },
 	poster:  	{ type: String },
 	seasons: 	{ type: Number },
 	genre: 		{ type: String, enum :
